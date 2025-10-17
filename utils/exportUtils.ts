@@ -210,3 +210,23 @@ export async function exportWorkoutsAsPDF(
   const last = selectedAthlete.last_name?.trim() || "";
   doc.save(`${formattedDate}.${first}.${last}.Weekly Training Report.pdf`);
 }
+export function exportWorkoutsAsText(workouts: any[]): string {
+  if (!Array.isArray(workouts) || workouts.length === 0) {
+    return "No workouts available.";
+  }
+
+  return workouts
+    .map((w, i) => {
+      const exercises = (w.exercises || [])
+        .map(
+          (ex: any) =>
+            `  - ${ex.name || "Unnamed"}: ${ex.sets || 0} sets x ${
+              ex.reps || 0
+            } reps @ ${ex.weight || "—"}`
+        )
+        .join("\n");
+      return `Workout ${i + 1} (${w.day || "Unscheduled"}):\n${exercises}`;
+    })
+    .join("\n\n");
+}
+
