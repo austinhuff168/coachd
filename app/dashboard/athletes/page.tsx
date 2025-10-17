@@ -5,7 +5,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import { Search, Pencil } from "lucide-react";
 import jsPDF from "jspdf";
-import { exportWorkoutsAsText } from "../../../utils/exportUtils";
+import { exportWorkoutsAsText } from "../../../lib/utils";
 
 
 type ProgramData = {
