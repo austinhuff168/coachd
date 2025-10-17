@@ -2,7 +2,7 @@
 const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  serverExternalPackages: ['@supabase/supabase-js'], // ✅ new key name
+  serverExternalPackages: ['@supabase/supabase-js'],
 };
 
 export default nextConfig;
